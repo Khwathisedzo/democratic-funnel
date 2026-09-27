@@ -9,8 +9,7 @@ with each municipality's risk, delivered through an interactive dashboard.
 ```
 src/            shared code: config (paths), io_utils (robust readers), privacy
 notebooks/      one notebook per pipeline stage, run in order (00_setup first)
-web/            the dashboard: Flask + HTML, Chart.js charts and a Leaflet map
-app/artifacts/  the small data files the dashboard reads (written by 09_dashboard_prep)
+app/            Streamlit dashboard (app/artifacts: small files the deployed app needs)
 docs/           sources.csv - every dataset, URL, access date, snapshot date
 data/           raw -> interim -> processed   (not in Git; lives on the shared Drive)
 models/         trained models                (not in Git)
@@ -40,7 +39,7 @@ python -m venv .venv && .venv\Scripts\activate      # macOS/Linux: source .venv/
 pip install -r requirements.txt
 # optional: point at the shared data synced by Google Drive for Desktop
 setx DIRISA_ROOT "G:\My Drive\DIRISA_SDC"            # macOS/Linux: export DIRISA_ROOT=...
-pip install -r web/requirements.txt && python web/app.py   # dashboard on http://localhost:5000
+streamlit run app/app.py                              # checks the dashboard runs
 ```
 
 ## Reproducing the results
