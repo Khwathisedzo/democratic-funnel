@@ -48,6 +48,11 @@ pip install -r web/requirements.txt && python web/app.py   # dashboard on http:/
 2. Run the notebooks in numeric order
 3. Package versions used are logged in `environment.json` by `00_setup`
 
+**Note on by-elections:** `data/raw/iec_byelections/` is an empty placeholder. We planned to use municipal
+by-election results (Nov 2021 onwards) as a recent turnout signal, but dropped them because by-elections did not
+happen in every municipality and a single by-election is not a reliable measure of turnout. No by-election data is
+used in the model or the dashboard, and the `byelection_*` columns from `03_byelections_npe` stay empty.
+
 ## Data and privacy
 All data is publicly available; sources and access dates are in `docs/sources.csv`.
 Candidate lists contain personal information: personal columns are dropped on load (`src/privacy.py`),
